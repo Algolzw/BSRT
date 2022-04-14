@@ -1,10 +1,10 @@
-# BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment (Real-World)
+# BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment
 
-![DCLS](figs/ts2.pdf)
+![ts](figs/ts2.png)
 
 ## Overview
 
-![DCLS](figs/overview.pdf)
+![overview.png](figs/overview.png)
 
 ## Dependencies
 - OS: Ubuntu 18.04
@@ -49,7 +49,7 @@ python test_real.py --n_GPUs 1 --model BSRT --model_level S --swinfeature --batc
 ## Results
 
 ###Comparison on Synthetic dataset
-![ISO kernel](figs/cmp_syn.pdf)
+![cmp_syn.png](figs/cmp_syn.png)
 
 ###Comparison on Real-World dataset
-![ANISO kernel](figs/cmp_real.pdf)
+![cmp_real.png](figs/cmp_real.png)
