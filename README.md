@@ -48,8 +48,8 @@ python test_real.py --n_GPUs 1 --model BSRT --model_level S --swinfeature --batc
 
 ## Results
 
-###Comparison on Synthetic dataset
+### Comparison on Synthetic dataset
 ![cmp_syn.png](figs/cmp_syn.png)
 
-###Comparison on Real-World dataset
+### Comparison on Real-World dataset
 ![cmp_real.png](figs/cmp_real.png)
