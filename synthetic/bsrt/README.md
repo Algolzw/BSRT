@@ -1,4 +1,4 @@
-# SwinBSR: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment (Synthetic)
+# BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment (Synthetic)
 
 ## Dependencies
 - OS: Ubuntu 18.04
