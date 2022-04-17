@@ -1,6 +1,6 @@
 # BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment 
 
-#### Winer method of the NTIRE 2022 Burst Super-Resolution Challenge (CVPRW 2022)
+#### The winning method of the NTIRE 2022 Burst Super-Resolution Challenge (CVPRW 2022)
 
 ![ts](figs/ts.png)
 
