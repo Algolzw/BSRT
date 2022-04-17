@@ -2,5 +2,3 @@ matplotlib
 imageio
 opencv-python
 tensorboardX
-tqdm
-timm
