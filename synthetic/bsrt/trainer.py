@@ -63,7 +63,7 @@ class Trainer():
         else:
             self.fix_unflagged = False
         self.fix_epoch = 5
-        self.fix_keys = ["spynet", "dcnpack"] #"dcnpack"
+        self.fix_keys = ["spynet", "dcnpack"]
 
         ###################################
 
@@ -128,6 +128,7 @@ class Trainer():
             )
         self.loss.start_log()
 
+        # train alignment module after 5 epochs.
         if self.args.pre_train == "":
             if self.fix_unflagged and epoch < self.fix_epoch:
                 if self.args.local_rank <= 0:
@@ -161,36 +162,15 @@ class Trainer():
                 with autocast():
                     sr = self.model(burst, 0)
                     loss = self.aligned_loss(sr, gt)
-                    # mask = (torch.isnan(loss_2d) + torch.isinf(loss_2d)) > 0
-                    # loss = loss_2d.data.masked_fill(mask, 0).mean()
-                    # flow_loss = utility.smooth_loss(flow, warped) * (1./(epoch*100))
-                    # loss = pix_loss + flow_loss 
             else:
                 sr = self.model(burst, 0)
                 loss = self.aligned_loss(sr, gt)
-                # mask = (torch.isnan(loss_2d) or torch.isinf(loss_2d))
-                # loss = loss_2d.data.masked_fill(mask, 0).mean()
-                # flow_loss = utility.smooth_loss(flow, warped) * (1./(epoch*100))
-                # loss = pix_loss + flow_loss
-
-            # if torch.isinf(loss).sum() + torch.isnan(loss).sum() > 0:
-            #     print("loss has inf or nan values! continue")
-            #     loss = torch.nan_to_num(loss, nan=.0, posinf=.0)
-                # timer_model.release()
-                # timer_data.release()
-                # self.glob_iter += 1
-                # timer_data.tic()
-                # continue
 
             if self.args.n_GPUs > 1:
                 torch.distributed.barrier()
                 reduced_loss = utility.reduce_mean(loss, self.args.n_GPUs)
-                # reduced_loss_pix = utility.reduce_mean(pix_loss, self.args.n_GPUs)
-                # reduced_loss_flo = utility.reduce_mean(flow_loss, self.args.n_GPUs)
             else:
                 reduced_loss = loss
-                # reduced_loss_pix = pix_loss
-                # reduced_loss_flo = flow_loss
 
             self.optimizer.zero_grad()
             
@@ -216,10 +196,6 @@ class Trainer():
 
             if self.args.local_rank == 0:
                 timer_model.hold()
-                # if epoch % 1 == 0 and batch % 10 == 0:
-                #     self.writer.add_scalars('Loss', {tfboard_name + '_mse_L1': reduced_loss.detach().cpu().numpy()},
-                #                             self.glob_iter)
-
                 if (batch + 1) % self.args.print_every == 0:
                     self.ckp.write_log('[{}/{}]\t[{:.4f}]\t{:.1f}+{:.1f}s'.format(
                         (batch + 1) * self.args.batch_size,

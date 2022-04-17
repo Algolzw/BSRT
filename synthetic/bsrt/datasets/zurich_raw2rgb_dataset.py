@@ -23,8 +23,8 @@ class ZurichRAW2RGB(torch.utils.data.Dataset):
         if split == 'train':
             image_list = ['{:d}.jpg'.format(i) for i in range(46839)]
         elif split == 'test':
-            image_list = ['{:d}.jpg'.format(int(i)) for i in np.linspace(1, 1200, 400)]
-            # image_list = ['{:d}.jpg'.format(i) for i in range(100)]
+            # image_list = ['{:d}.jpg'.format(int(i)) for i in np.linspace(1, 1200, 400)]
+            image_list = ['{:d}.jpg'.format(i) for i in range(1200)]
         else:
             raise Exception
 

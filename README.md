@@ -1,6 +1,6 @@
 # BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment
 
-![ts](figs/ts2.png)
+![ts](figs/ts.png)
 
 ## Overview
 
@@ -34,13 +34,36 @@ cd DCNv2
 python3 setup.py build develop # build
 python3 test.py # run examples and check
 ```
+
 ## Training
+
+#### For Synthetic data
+
 ```python3
+cd synthetic/bsrt
 # Modify the root path of training dataset and model etc.
 # The number of GPUs should be more than 1
-python main.py --n_GPUs 8 --print_every 20 --lr 0.00004 --decay 40-80 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 8 --burst_size 14 --patch_size 80 --pre_train ../../synthetic/train_log/bsrt/real_models/bsrt_tiny/bsrt_best_epoch.pth 
+python main.py --n_GPUs 8 --print_every 40 --lr 0.0001 --decay 150-300 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 32 --burst_size 14 --patch_size 256
 ```
+
+#### For Real-World data
+
+```python3
+cd real/bsrt
+# Modify the root path of training dataset and model etc.
+# The number of GPUs should be more than 1
+python main.py --n_GPUs 8 --print_every 20 --lr 0.00005 --decay 40-80 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 8 --burst_size 14 --patch_size 80 --pre_train ../../synthetic/train_log/bsrt/real_models/bsrt_tiny/bsrt_best_epoch.pth 
+```
+
 ## Test
+
+#### For Synthetic data
+```python3
+# Modify the path of test dataset and the path of the trained model
+python test_synburst.py --n_GPUs 1 --model BSRT --model_level S --swinfeature --burst_size 14 --patch_size 384 --pre_train ../train_log/bsrt/real_models/bsrt_tiny/bsrt_best_epoch.pth --root /data/dataset/ntire21/burstsr/synthetic
+```
+
+#### For Real-World data
 ```python3
 # Modify the path of test dataset and the path of the trained model
 python test_real.py --n_GPUs 1 --model BSRT --model_level S --swinfeature --batch_size 1 --burst_size 14 --patch_size 80 --pre_train ../train_log/bsrt/real_models/bsrt_tiny/bsrtbest_epoch.pth --root /data/dataset/ntire21/burstsr/real
