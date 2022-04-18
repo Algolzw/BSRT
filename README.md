@@ -46,7 +46,7 @@ python3 test.py # run examples and check
 
 ## Training
 
-We provide the all pretrained model weights [here](https://drive.google.com/file/d/1Bv1ZwoE3s8trhG--wjB0Yt6WJIQPpvsn/view?usp=sharing). 
+We provide all pretrained model weights [here](https://drive.google.com/file/d/1Bv1ZwoE3s8trhG--wjB0Yt6WJIQPpvsn/view?usp=sharing). 
 
 #### For Synthetic data
 
