@@ -28,7 +28,11 @@ cd DCNv2
 python3 setup.py build develop # build
 python3 test.py # run examples and check
 ```
+
 ## Training
+
+The pretrained PWC-Net model can be downloaded [here](https://drive.google.com/file/d/1dD6vB9QN3qwmOBi3AGKzJbbSojwDDlgV/view?usp=sharing). 
+
 ```python3
 # Modify the root path of training dataset and model etc.
 # The number of GPUs should be more than 1

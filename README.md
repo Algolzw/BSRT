@@ -1,12 +1,15 @@
 # BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment 
 
-#### The winning method of the NTIRE 2022 Burst Super-Resolution Challenge
+#### Winner of the NTIRE 2022 Burst Super-Resolution Challenge Real-World Track.
 
 > This work addresses the Burst Super-Resolution (BurstSR) task using a new architecture, which requires restoring a high-quality image from a sequence of noisy, misaligned, and low-resolution RAW bursts. To overcome the challenges in BurstSR, we propose a **B**urst **S**uper-**R**esolution **T**ransformer (**BSRT**), which can significantly improve the capability of extracting inter-frame information and reconstruction. To achieve this goal, we propose a Pyramid Flow-Guided Deformable Convolution Network (Pyramid FG-DCN) and incorporate Swin Transformer Blocks and Groups as our main backbone.  More specifically,  we combine optical flows and deformable convolutions, hence our BSRT can handle misalignment and aggregate the potential texture information in multi-frames more efficiently. In addition, our Transformer-based structure can capture long-range dependency to further improve the performance. The evaluation on both synthetic and real-world tracks demonstrates that our approach achieves a new state-of-the-art in BurstSR task. Further, our BSRT wins the championship in the NTIRE2022 Burst Super-Resolution Challenge.
+
 
 #### Comparison with State-of-the-art Burst Super-Resolution Methods
 
 ![ts](figs/ts.png)
+
+
 
 ## Overview Architecture
 
@@ -43,6 +46,8 @@ python3 test.py # run examples and check
 
 ## Training
 
+We provide the all pretrained model weights [here](https://drive.google.com/file/d/1Bv1ZwoE3s8trhG--wjB0Yt6WJIQPpvsn/view?usp=sharing). 
+
 #### For Synthetic data
 
 ```python3
@@ -60,6 +65,8 @@ cd real/bsrt
 # The number of GPUs should be more than 1
 python main.py --n_GPUs 8 --print_every 20 --lr 0.00005 --decay 40-80 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 8 --burst_size 14 --patch_size 80 --pre_train ../../synthetic/train_log/bsrt/real_models/bsrt_tiny/bsrt_best_epoch.pth 
 ```
+
+The pretrained PWC-Net model can be downloaded [here](https://drive.google.com/file/d/1dD6vB9QN3qwmOBi3AGKzJbbSojwDDlgV/view?usp=sharing). 
 
 ## Test
 
