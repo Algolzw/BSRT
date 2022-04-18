@@ -110,7 +110,7 @@ parser.add_argument('--reset', action='store_true',
                     help='reset the training')
 parser.add_argument('--test_every', type=int, default=1000,
                     help='do test per every N batches')
-parser.add_argument('--epochs', type=int, default=602,
+parser.add_argument('--epochs', type=int, default=100,
                     help='number of epochs to train')
 parser.add_argument('--batch_size', type=int, default=8,
                     help='input batch size for training')
@@ -125,7 +125,7 @@ parser.add_argument('--gan_k', type=int, default=1,
 
 # Optimization specifications
 
-parser.add_argument('--decay', type=str, default='150-250',
+parser.add_argument('--decay', type=str, default='40-80',
                     help='learning rate decay type')
 parser.add_argument('--gamma', type=float, default=0.5,
                     help='learning rate decay factor for step decay')
