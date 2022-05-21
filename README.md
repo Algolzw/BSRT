@@ -1,4 +1,4 @@
-# BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment 
+# BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment (CVPRW 2022)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bsrt-improving-burst-super-resolution-with/burst-image-super-resolution-on-burstsr)](https://paperswithcode.com/sota/burst-image-super-resolution-on-burstsr?p=bsrt-improving-burst-super-resolution-with) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/bsrt-improving-burst-super-resolution-with/burst-image-super-resolution-on)](https://paperswithcode.com/sota/burst-image-super-resolution-on?p=bsrt-improving-burst-super-resolution-with)
 
 #### [BSRT](https://arxiv.org/abs/2204.08332), the winner of the NTIRE 2022 Burst Super-Resolution Challenge Real-World Track. 
@@ -90,6 +90,20 @@ python test_real.py --n_GPUs 1 --model BSRT --model_level S --swinfeature --batc
 
 ### Comparison on Real-World dataset
 ![cmp_real.png](figs/cmp_real.png)
+
+
+## Citations
+If our code helps your research or work, please consider citing our paper.
+The following is a BibTeX reference.
+
+```
+@article{luo2022bsrt,
+  title={BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment},
+  author={Luo, Ziwei and Li, Youwei and Cheng, Shen and Yu, Lei and Wu, Qi and Wen, Zhihong and Fan, Haoqiang and Sun, Jian and Liu, Shuaicheng},
+  journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  year={2022}
+}
+```
 
 ## Contact
 email: [ziwei.ro@gmail.com]
