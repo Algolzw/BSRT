@@ -51,7 +51,7 @@ We provide all pretrained model weights [here](https://drive.google.com/file/d/1
 #### For Synthetic data
 
 ```python3
-cd synthetic/bsrt
+cd code/synthetic/bsrt
 # Modify the root path of training dataset and model etc.
 # The number of GPUs should be more than 1
 python main.py --n_GPUs 8 --print_every 40 --lr 0.0001 --decay 150-300 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 32 --burst_size 14 --patch_size 256
@@ -60,7 +60,7 @@ python main.py --n_GPUs 8 --print_every 40 --lr 0.0001 --decay 150-300 --save bs
 #### For Real-World data
 
 ```python3
-cd real/bsrt
+cd code/real/bsrt
 # Modify the root path of training dataset and model etc.
 # The number of GPUs should be more than 1
 python main.py --n_GPUs 8 --print_every 20 --lr 0.00005 --decay 40-80 --save bsrt_tiny --model BSRT --fp16 --model_level S --swinfeature --batch_size 8 --burst_size 14 --patch_size 80 --pre_train ../../synthetic/train_log/bsrt/real_models/bsrt_tiny/bsrt_best_epoch.pth 
