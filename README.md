@@ -98,10 +98,11 @@ If our code helps your research or work, please consider citing our paper.
 The following is a BibTeX reference.
 
 ```
-@article{luo2022bsrt,
+@inproceedings{luo2022bsrt,
   title={BSRT: Improving Burst Super-Resolution with Swin Transformer and Flow-Guided Deformable Alignment},
   author={Luo, Ziwei and Li, Youwei and Cheng, Shen and Yu, Lei and Wu, Qi and Wen, Zhihong and Fan, Haoqiang and Sun, Jian and Liu, Shuaicheng},
-  journal={IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={998--1008},
   year={2022}
 }
 ```
